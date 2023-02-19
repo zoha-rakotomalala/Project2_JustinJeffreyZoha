@@ -220,9 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fafd34306618144f8f508130891cef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wandererCount: 10
-  wanderer: {fileID: 363870454701417630, guid: 334f9330dd8a1ec44a7dd9130fdaf4d5, type: 3}
+  wandererCount: 1
+  wanderer: {fileID: 7462618090467530822, guid: aee8003acb51efb48a880e64e87e93e9, type: 3}
   uniqueWanderer: {fileID: 7470973961801901779, guid: b45f8b27da9f7f5448f0f002f52d06c2, type: 3}
+  Xrange: 0
+  Yrange: 0
 --- !u!4 &295439583
 Transform:
   m_ObjectHideFlags: 0
