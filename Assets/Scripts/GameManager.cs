@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     #region Gameplay_management
 
     #region Window_variables
+    [HideInInspector]
     public float Xrange, Yrange; //Half the main camera dimenstions
     #endregion
     private void SetupGame()
