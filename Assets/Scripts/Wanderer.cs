@@ -74,6 +74,17 @@ public class Wanderer : MonoBehaviour
             newPosition.x = Mathf.Clamp(newPosition.x, -GameManager.Instance.Xrange, GameManager.Instance.Xrange);
             newPosition.y = Mathf.Clamp(newPosition.y, -GameManager.Instance.Yrange, GameManager.Instance.Yrange);
 
+            // Check if the Wanderer has reached the edge of the screen and change direction if it has
+            if (newPosition.x == -GameManager.Instance.Xrange || newPosition.x == GameManager.Instance.Xrange)
+            {
+                moveDirection.x = -moveDirection.x;
+            }
+
+            if (newPosition.y == -GameManager.Instance.Yrange || newPosition.y == GameManager.Instance.Yrange)
+            {
+                moveDirection.y = -moveDirection.y;
+            }
+
             // Move the wanderer to the new position
             rb.MovePosition(newPosition);
 
