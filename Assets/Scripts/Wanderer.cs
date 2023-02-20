@@ -4,57 +4,45 @@ using UnityEngine;
 
 public class Wanderer : MonoBehaviour
 {
+    #region Move_variables
     // Speed at which the wanderer moves
     public float speed = 2f;
 
+    // The current direction the wanderer is moving
+    private Vector2 moveDirection;
+
+    bool isWalking = true;
+    #endregion
+
+    #region Time_variables
     // Time the wanderer moves in one direction before changing direction
     public float moveTime = 1f;
 
     // Time the wanderer pauses between moves
     public float pauseTime = 0.5f;
-
-    // The current direction the wanderer is moving
-    private Vector2 moveDirection;
-
-    // Countdown timer for moving in the current direction
     private float moveTimer;
+    #endregion
 
-    // Countdown timer for pausing between moves
-    private float pauseTimer;
-
-    // Reference to the Rigidbody2D component attached to this game object
+    #region Unity_variables
     private Rigidbody2D rb;
-
-    // Get a reference to the Animator component on the GameObject
     Animator animator;
+    #endregion
 
+    #region Unity_functions
     void Start()
     {
-        // Get the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        // Initialize the timers and direction
         moveTimer = moveTime;
-        pauseTimer = pauseTime;
-        SetRandomDirection();
-        animator.SetBool("isWalking", true);
-    }
 
-    IEnumerator PauseAndChangeDirection()
-    {
-        Debug.Log("Pause and new direction");
-        animator.SetBool("isWalking", false);
-        moveDirection = Vector2.zero;
-        yield return new WaitForSeconds(pauseTime);
+        //Initialize move direction
         SetRandomDirection();
-        moveTimer = moveTime;
         animator.SetBool("isWalking", true);
     }
 
     void Update()
     {
-        if (!animator.GetBool("isWalking"))
+        if (!isWalking)
         {
             return;
         }
@@ -67,26 +55,8 @@ public class Wanderer : MonoBehaviour
         }
         else
         {
-            // Calculate the new position based on the current direction and speed
-            Vector2 newPosition = rb.position + (moveDirection * speed * Time.deltaTime);
-
-            // Clamp the position to stay within the bounds of the screen
-            newPosition.x = Mathf.Clamp(newPosition.x, -GameManager.Instance.Xrange, GameManager.Instance.Xrange);
-            newPosition.y = Mathf.Clamp(newPosition.y, -GameManager.Instance.Yrange, GameManager.Instance.Yrange);
-
-            // Check if the Wanderer has reached the edge of the screen and change direction if it has
-            if (newPosition.x == -GameManager.Instance.Xrange || newPosition.x == GameManager.Instance.Xrange)
-            {
-                moveDirection.x = -moveDirection.x;
-            }
-
-            if (newPosition.y == -GameManager.Instance.Yrange || newPosition.y == GameManager.Instance.Yrange)
-            {
-                moveDirection.y = -moveDirection.y;
-            }
-
             // Move the wanderer to the new position
-            rb.MovePosition(newPosition);
+            rb.MovePosition(GetDestination());
 
             // Calculate the normalized move direction for the animator
             Vector2 normalizedMoveDirection = moveDirection.normalized;
@@ -95,15 +65,58 @@ public class Wanderer : MonoBehaviour
             animator.SetFloat("dirX", normalizedMoveDirection.x);
             animator.SetFloat("dirY", normalizedMoveDirection.y);
 
-            animator.SetBool("isWalking", true);
+            isWalking = true;
+            animator.SetBool("isWalking", isWalking);
         }
     }
+    IEnumerator PauseAndChangeDirection()
+    {
+        Debug.Log("Pause and new direction");
+
+        isWalking= false;
+        animator.SetBool("isWalking", false);
+
+        moveDirection = Vector2.zero;
+
+        yield return new WaitForSeconds(pauseTime);
+
+        SetRandomDirection();
+        moveTimer = moveTime;
+
+        isWalking= true;
+        animator.SetBool("isWalking", true);
+    }
+
+    #endregion
 
     // Sets a new random direction for the wanderer to move in
     private void SetRandomDirection()
     {
         moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         Debug.Log("Direction set");
+    }
+
+    //Return target move destination
+    private Vector2 GetDestination()
+    {
+        // Calculate the new position based on the current direction and speed
+        Vector2 newPosition = rb.position + (moveDirection * speed * Time.deltaTime);
+
+        // Clamp the position to stay within the bounds of the screen
+        newPosition.x = Mathf.Clamp(newPosition.x, -GameManager.Instance.Xrange, GameManager.Instance.Xrange);
+        newPosition.y = Mathf.Clamp(newPosition.y, -GameManager.Instance.Yrange, GameManager.Instance.Yrange);
+
+        // Check if the Wanderer has reached the edge of the screen and change direction if it has
+        if (newPosition.x == -GameManager.Instance.Xrange || newPosition.x == GameManager.Instance.Xrange)
+        {
+            moveDirection.x = -moveDirection.x;
+        }
+        if (newPosition.y == -GameManager.Instance.Yrange || newPosition.y == GameManager.Instance.Yrange)
+        {
+            moveDirection.y = -moveDirection.y;
+        }
+
+        return newPosition;
     }
 
     // Called when the wanderer collides with something
