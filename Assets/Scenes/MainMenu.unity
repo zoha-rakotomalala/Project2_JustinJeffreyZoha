@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wandererCount: 10
   wanderer: {fileID: 7462618090467530822, guid: aee8003acb51efb48a880e64e87e93e9, type: 3}
-  uniqueWanderer: {fileID: 7470973961801901779, guid: b45f8b27da9f7f5448f0f002f52d06c2, type: 3}
+  uniqueWanderer: {fileID: 7462618090467530822, guid: dd73b543078e27846836d3d5651644d7, type: 3}
   Xrange: 0
   Yrange: 0
 --- !u!4 &295439583

@@ -11,7 +11,7 @@ public class Wanderer : MonoBehaviour
     // The current direction the wanderer is moving
     private Vector2 moveDirection;
 
-    bool isWalking = true;
+    protected bool isWalking = true;
     #endregion
 
     #region Time_variables
@@ -24,12 +24,12 @@ public class Wanderer : MonoBehaviour
     #endregion
 
     #region Unity_variables
-    private Rigidbody2D rb;
-    Animator animator;
+    protected Rigidbody2D rb;
+    protected Animator animator;
     #endregion
 
     #region Unity_functions
-    void Start()
+    protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -40,7 +40,7 @@ public class Wanderer : MonoBehaviour
         animator.SetBool("isWalking", true);
     }
 
-    void Update()
+    protected void Update()
     {
         if (!isWalking)
         {
