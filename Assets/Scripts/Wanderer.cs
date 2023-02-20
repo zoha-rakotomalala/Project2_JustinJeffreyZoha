@@ -118,11 +118,4 @@ public class Wanderer : MonoBehaviour
 
         return newPosition;
     }
-
-    // Called when the wanderer collides with something
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        // Set a new random direction
-        SetRandomDirection();
-    }
 }
