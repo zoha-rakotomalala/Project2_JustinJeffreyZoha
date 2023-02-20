@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fafd34306618144f8f508130891cef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wandererCount: 10
+  wandererCount: 0
   wanderer: {fileID: 7462618090467530822, guid: aee8003acb51efb48a880e64e87e93e9, type: 3}
   uniqueWanderer: {fileID: 7462618090467530822, guid: dd73b543078e27846836d3d5651644d7, type: 3}
   Xrange: 0

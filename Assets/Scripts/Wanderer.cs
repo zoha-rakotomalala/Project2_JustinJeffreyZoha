@@ -9,7 +9,7 @@ public class Wanderer : MonoBehaviour
     public float speed = 2f;
 
     // The current direction the wanderer is moving
-    private Vector2 moveDirection;
+    protected Vector2 moveDirection;
 
     protected bool isWalking = true;
     #endregion
@@ -90,14 +90,14 @@ public class Wanderer : MonoBehaviour
     #endregion
 
     // Sets a new random direction for the wanderer to move in
-    private void SetRandomDirection()
+    protected virtual void SetRandomDirection()
     {
         moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         Debug.Log("Direction set");
     }
 
     //Return target move destination
-    private Vector2 GetDestination()
+    protected virtual Vector2 GetDestination()
     {
         // Calculate the new position based on the current direction and speed
         Vector2 newPosition = rb.position + (moveDirection * speed * Time.deltaTime);
