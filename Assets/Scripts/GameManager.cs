@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     public GameObject poofPrefab;
     GameObject leaveButton;
+    GameObject endMessage;
 
     #region Unity_functions
     private void Awake()
@@ -67,6 +68,8 @@ public class GameManager : MonoBehaviour
             SetupGame();
             leaveButton = GameObject.FindWithTag("LeaveButton");
             leaveButton.SetActive(false);
+            endMessage = GameObject.FindWithTag("EndMessage");
+            endMessage.SetActive(false);
             Debug.Log("Leave button: " + leaveButton);
         }
     }
@@ -140,10 +143,14 @@ public class GameManager : MonoBehaviour
         PoofWanderers();
         gamePaused = true;
         leaveButton.SetActive(true);
+        endMessage.GetComponent<TextMeshProUGUI>().text = "You won!";
+        endMessage.SetActive(true) ;
     }
 
     private void TriggerLose() {
         leaveButton.SetActive(true);
+        endMessage.GetComponent<TextMeshProUGUI>().text = "You lose!";
+        endMessage.SetActive(true);
     }
     private void PoofWanderers()
     {
