@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using TreeEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,9 +22,23 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Update()
+    {
+        if (!gamePaused)
+        {
+            scoreTimer += Time.deltaTime;
+            if (scoreTimer > secondsBetweenTic)
+            {
+                scoreTimer -= secondsBetweenTic;
+                TicScore();
+            }
+        }
+    }
     #endregion
 
     #region Game_variables
+    private bool gamePaused = true;
     public int wandererCount = 10;
     public MoveEnum uniqueWandererMode;
     public GameObject wanderer;
@@ -46,7 +61,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Gameplay_management
-
     #region Window_variables
     [HideInInspector]
     public float Xrange, Yrange; //Half the main camera dimenstions
@@ -69,6 +83,49 @@ public class GameManager : MonoBehaviour
         Vector3 SpawnPos = new Vector3(Random.Range(-Xrange, Xrange - buffer.x-2), Random.Range(-Yrange+buffer.y+2, Yrange), 0f);
         //Spawn Unique Wanderer
         _unqWanderer.transform.position = SpawnPos;
+
+        //Setup Score
+        scoreObject = GameObject.Find("/Canvas/ScoreDisplay/ScoreText");
+        scoreText = scoreObject.GetComponent<TextMeshProUGUI>();
+
+        gamePaused= false;
+    }
+    #endregion
+
+    #region Score_variables
+    [SerializeField] private int score = 1000;
+    public int secondsBetweenTic = 1;
+    public int ticIncrement = 5;
+    public int punishIncrement = 50;
+
+    private float scoreTimer = 0f;
+
+    public GameObject scoreObject;
+    private TextMeshProUGUI scoreText;
+    #endregion
+
+    #region Score_functions
+    private void TicScore()
+    {
+        score -= ticIncrement;
+        if(score <= 0)
+        {
+            score = 0;
+        }
+        UpdateScoreUI();
+    }
+    public void DecreaseScore()
+    {
+        score -= punishIncrement;
+        if (score <= 0)
+        {
+            score = 0;
+        }
+        UpdateScoreUI();
+    }
+    private void UpdateScoreUI()
+    {
+        scoreText.text = score.ToString();
     }
     #endregion
 }
