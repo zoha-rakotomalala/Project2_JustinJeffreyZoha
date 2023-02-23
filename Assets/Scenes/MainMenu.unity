@@ -220,12 +220,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fafd34306618144f8f508130891cef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poofPrefab: {fileID: 4614837305621958062, guid: 8861f433f1a027347804058b38f763cf, type: 3}
   wandererCount: 10
-  uniqueWandererMode: 1
-  wanderer: {fileID: 7462618090467530822, guid: aee8003acb51efb48a880e64e87e93e9, type: 3}
-  uniqueWanderer: {fileID: 7462618090467530822, guid: dd73b543078e27846836d3d5651644d7, type: 3}
+  uniqueWandererMode: 0
+  wandererPrefab: {fileID: 7462618090467530822, guid: aee8003acb51efb48a880e64e87e93e9, type: 3}
+  uniqueWandererPrefab: {fileID: 7462618090467530822, guid: dd73b543078e27846836d3d5651644d7, type: 3}
   Xrange: 0
   Yrange: 0
+  score: 1000
+  secondsBetweenTic: 1
+  ticIncrement: 5
+  punishIncrement: 50
 --- !u!4 &295439583
 Transform:
   m_ObjectHideFlags: 0

@@ -120,11 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f382462e99d7d439e7d33835ea1233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-  moveSpeed: 1
-  moveTime: 5
+  moveSpeed: 3
+  moveTime: 1
   pauseTime: 1
-
+  symbolPrefab: {fileID: 914363165128682150, guid: 92b8c156f6fadfb488e083b97c1612db, type: 3}
 --- !u!50 &7462618090467530817
 Rigidbody2D:
   serializedVersion: 4

@@ -62,15 +62,13 @@ public class Wanderer : MonoBehaviour
             }
         }
 
-        //Check if we're walking out of frame
-        if (transform.position.x >= GameManager.Instance.Xrange || 
-            -transform.position.x >= GameManager.Instance.Xrange)
+        //Check if we're walking out of frame. Need is Walking condition for rare bug
+        if (Mathf.Sign(moveDirection.x)*transform.position.x >= GameManager.Instance.Xrange)
         {
             moveDirection.x *= -1;
             Move();
         }
-        if(transform.position.y >= GameManager.Instance.Yrange ||
-            -transform.position.y >= GameManager.Instance.Yrange)
+        if (Mathf.Sign(moveDirection.y) * transform.position.y >= GameManager.Instance.Yrange)
         {
             moveDirection.y *= -1;
             Move();
@@ -104,6 +102,18 @@ public class Wanderer : MonoBehaviour
         animator.SetBool("isWalking", true);
     }
     #endregion
+
+    public GameObject symbolPrefab;
+    public bool Identify()
+    {
+        Vector3 symbolPos = transform.position;
+        symbolPos.y += 1;
+
+        GameObject symbol = Instantiate(symbolPrefab, symbolPos, Quaternion.identity);
+        symbol.transform.parent = gameObject.transform;
+
+        return false;
+    }
 }
 
 struct Clock

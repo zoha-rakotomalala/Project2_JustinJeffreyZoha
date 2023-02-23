@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
+    public GameObject poofPrefab;
 
     #region Unity_functions
     private void Awake()
@@ -41,8 +42,9 @@ public class GameManager : MonoBehaviour
     private bool gamePaused = true;
     public int wandererCount = 10;
     public MoveEnum uniqueWandererMode;
-    public GameObject wanderer;
-    public GameObject uniqueWanderer;
+    public GameObject wandererPrefab;
+    public GameObject uniqueWandererPrefab;
+    private GameObject[] Wanderers;
     #endregion
 
     #region Scene_transitions
@@ -70,16 +72,18 @@ public class GameManager : MonoBehaviour
         Yrange = Camera.main.orthographicSize;
         Xrange = Yrange * Camera.main.aspect;
 
+        Wanderers = new GameObject[wandererCount];
         //Spawn Wanderers
         for (int i = 0; i < wandererCount; i++)
         {
-            Instantiate(wanderer, new Vector3(Random.Range(-Xrange, Xrange), Random.Range(-Yrange, Yrange), 0f), Quaternion.identity);
+            Wanderers[i] = Instantiate(wandererPrefab, new Vector3(Random.Range(-Xrange, Xrange), Random.Range(-Yrange, Yrange), 0f), Quaternion.identity);
         }
 
         //Find spawn position for Unique wanderer where his path is contained in the screen
-        GameObject _unqWanderer = Instantiate(uniqueWanderer);
+        GameObject _unqWanderer = Instantiate(uniqueWandererPrefab);
         Vector2 buffer = _unqWanderer.transform.GetComponent<UniqueWanderer>().SetMode(uniqueWandererMode);
-        Debug.Log(buffer);
+
+
         Vector3 SpawnPos = new Vector3(Random.Range(-Xrange, Xrange - buffer.x-2), Random.Range(-Yrange+buffer.y+2, Yrange), 0f);
         //Spawn Unique Wanderer
         _unqWanderer.transform.position = SpawnPos;
@@ -89,6 +93,19 @@ public class GameManager : MonoBehaviour
         scoreText = scoreObject.GetComponent<TextMeshProUGUI>();
 
         gamePaused= false;
+    }
+
+    public void TriggerWin()
+    {
+        PoofWanderers();
+        gamePaused = true;
+    }
+    private void PoofWanderers()
+    {
+        foreach(GameObject wan in Wanderers){
+            Instantiate(poofPrefab, wan.transform.position, Quaternion.identity);
+            Destroy(wan);
+        }
     }
     #endregion
 
@@ -100,7 +117,7 @@ public class GameManager : MonoBehaviour
 
     private float scoreTimer = 0f;
 
-    public GameObject scoreObject;
+    private GameObject scoreObject;
     private TextMeshProUGUI scoreText;
     #endregion
 
