@@ -65,18 +65,19 @@ public class GameManager : MonoBehaviour
     #region Gameplay_management
     #region Window_variables
     [HideInInspector]
-    public float Xrange, Yrange; //Half the main camera dimenstions
+    public float Xrange, Ymax, Ymin; //Half the main camera dimenstions
     #endregion
     private void SetupGame()
     {
-        Yrange = Camera.main.orthographicSize;
-        Xrange = Yrange * Camera.main.aspect;
+        Ymax = Camera.main.orthographicSize;
+        Ymin = -Ymax * 5 / 7;
+        Xrange = Ymax * Camera.main.aspect;
 
         Wanderers = new GameObject[wandererCount];
         //Spawn Wanderers
         for (int i = 0; i < wandererCount; i++)
         {
-            Wanderers[i] = Instantiate(wandererPrefab, new Vector3(Random.Range(-Xrange, Xrange), Random.Range(-Yrange, Yrange), 0f), Quaternion.identity);
+            Wanderers[i] = Instantiate(wandererPrefab, new Vector3(Random.Range(-Xrange, Xrange), Random.Range(Ymin, Ymax), 0f), Quaternion.identity);
         }
 
         //Find spawn position for Unique wanderer where his path is contained in the screen
@@ -84,7 +85,7 @@ public class GameManager : MonoBehaviour
         Vector2 buffer = _unqWanderer.transform.GetComponent<UniqueWanderer>().SetMode(uniqueWandererMode);
 
 
-        Vector3 SpawnPos = new Vector3(Random.Range(-Xrange, Xrange - buffer.x-2), Random.Range(-Yrange+buffer.y+2, Yrange), 0f);
+        Vector3 SpawnPos = new Vector3(Random.Range(-Xrange, Xrange - buffer.x), Random.Range(Ymin+buffer.y, Ymax), 0f);
         //Spawn Unique Wanderer
         _unqWanderer.transform.position = SpawnPos;
 

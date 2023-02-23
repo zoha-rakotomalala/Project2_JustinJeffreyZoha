@@ -68,7 +68,8 @@ public class Wanderer : MonoBehaviour
             moveDirection.x *= -1;
             Move();
         }
-        if (Mathf.Sign(moveDirection.y) * transform.position.y >= GameManager.Instance.Yrange)
+        if ((transform.position.y >= GameManager.Instance.Ymax && moveDirection.y > 0) ||
+            (transform.position.y <= GameManager.Instance.Ymin && moveDirection.y < 0))
         {
             moveDirection.y *= -1;
             Move();
