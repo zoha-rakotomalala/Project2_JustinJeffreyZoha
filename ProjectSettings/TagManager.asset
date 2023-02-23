@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2966402787
+    locked: 0
+  - name: Wanderers
+    uniqueID: 2123844547
+    locked: 0

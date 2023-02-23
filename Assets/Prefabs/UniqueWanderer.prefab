@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8205668597170303216}
   - component: {fileID: 7462618090467530817}
   - component: {fileID: 4519945312883907449}
+  - component: {fileID: 2811146135697161829}
   m_Layer: 0
   m_Name: UniqueWanderer
   m_TagString: UniqueWanderer
@@ -171,3 +172,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!210 &2811146135697161829
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7462618090467530822}
+  m_Enabled: 1
+  m_SortingLayerID: 2123844547
+  m_SortingLayer: 2
+  m_SortingOrder: 10
