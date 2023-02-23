@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 10586
+  controlID: 12714
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 10589
+  controlID: 12668
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 10529
+  controlID: 12646
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 288
     height: 355.2
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -226,7 +226,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d483fffff084ffff36abffffacc9ffffe2caffffd6d0ffff82d1ffff5cd4fffff6d4ffff64d7ffffcaddffffe8e2ffff26e7ffff2afbffffd07c0000ee7c0000fa7f0000d8810000ec830000fa860000ce870000
+      m_ExpandedIDs: 4077ffffda77ffff4a7cfffff27ffffff47fffffd483fffff084ffff36abffffacc9ffffe2caffffd6d0ffff82d1ffff5cd4fffff6d4ffff64d7ffffcaddffffe8e2ffff26e7ffff2afbffffd07c0000ee7c0000fa7f0000d8810000ec830000fa860000ce870000c4a20000e2a20000baa50000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -789,8 +789,8 @@ MonoBehaviour:
     y: 355.2
     width: 1163.2
     height: 375.59998
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -909,7 +909,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 206a0000
     m_LastClickedInstanceID: 27168
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000b2910000e29100006a5e0000845f0000
+    m_ExpandedInstanceIDs: c6230000b2910000e29100006a5e0000845f00005e600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

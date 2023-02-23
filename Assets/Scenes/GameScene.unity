@@ -937,7 +937,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7803863260015789635, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_Name
-      value: leaveButton
+      value: replayButton
       objectReference: {fileID: 0}
     - target: {fileID: 7803863260015789635, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_IsActive
@@ -982,6 +982,18 @@ PrefabInstance:
     - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1043,6 +1055,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LoadMainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7803863260015789638, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce4e6314b2e27ea45b0817f2f1196cd1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
 --- !u!224 &1642974062 stripped
