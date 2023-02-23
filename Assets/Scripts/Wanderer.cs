@@ -111,6 +111,7 @@ public class Wanderer : MonoBehaviour
 
         GameObject symbol = Instantiate(symbolPrefab, symbolPos, Quaternion.identity);
         symbol.transform.parent = gameObject.transform;
+        FindObjectOfType<GameManager>().GetComponent<GameManager>().DecreaseScore();
 
         return false;
     }
