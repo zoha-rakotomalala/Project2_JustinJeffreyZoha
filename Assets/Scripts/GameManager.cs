@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     private void SetupGame()
     {
         Ymax = Camera.main.orthographicSize;
-        Ymin = -Ymax * 5 / 7;
+        Ymin = -Ymax * 5 / 8;
         Xrange = Ymax * Camera.main.aspect;
 
         Wanderers = new GameObject[wandererCount];
