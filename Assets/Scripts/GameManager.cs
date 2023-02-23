@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         //Find spawn position for Unique wanderer where his path is contained in the screen
         GameObject _unqWanderer = Instantiate(uniqueWanderer);
         Vector2 buffer = _unqWanderer.transform.GetComponent<UniqueWanderer>().SetMode(uniqueWandererMode);
-
+        Debug.Log(buffer);
         Vector3 SpawnPos = new Vector3(Random.Range(-Xrange, Xrange - buffer.x-2), Random.Range(-Yrange+buffer.y+2, Yrange), 0f);
         //Spawn Unique Wanderer
         _unqWanderer.transform.position = SpawnPos;

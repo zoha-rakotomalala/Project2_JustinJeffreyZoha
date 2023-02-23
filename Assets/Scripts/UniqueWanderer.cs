@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class UniqueWanderer : Wanderer
 {
     private int moveCounter = 0;
-    private float diagonalSpeedMultiplier = 0.7f;
     private MoveEnum moveMode = MoveEnum.Square;
 
     #region Init_functions
@@ -16,8 +15,11 @@ public class UniqueWanderer : Wanderer
         switch (moveMode)
         {
             case MoveEnum.Square:
-                return Vector2.one * moveTime * speed * 1.4f / 28.57f;
-            case MoveEnum.TimeGlass: return new Vector2(1, 2) * moveTime * speed * 1.4f / 28.57f;
+                Debug.Log(moveTime);
+                Debug.Log(moveSpeed);
+                return Vector2.one * moveTime * moveSpeed;
+            case MoveEnum.TimeGlass: 
+                return new Vector2(1, 2) * moveTime * moveSpeed;
             default:
                 Debug.Log("Invalid Move Mode");
                 break;
@@ -27,7 +29,7 @@ public class UniqueWanderer : Wanderer
     #endregion
 
     #region Override_functions
-    protected override void SetRandomDirection()
+    protected override void SetDirection()
     {
         switch (moveMode)
         {
@@ -38,15 +40,6 @@ public class UniqueWanderer : Wanderer
                 SetDirection_TimeGlass();
                 break;
         }
-    }
-
-    // Override the GetDestination() method to handle collisions with the border and keep the unique wanderer in its zigzag pattern
-    protected override Vector2 GetDestination()
-    {
-        // Calculate the new position based on the current direction and speed
-        Vector2 newPosition = rb.position + (moveDirection * speed * Time.deltaTime);
-
-        return newPosition;
     }
     #endregion
 
