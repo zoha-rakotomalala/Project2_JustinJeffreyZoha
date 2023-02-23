@@ -76,32 +76,10 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from the event
         SceneManager.LoadScene("MainMenu");
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        score = 1000;   
     }
-
-    /*public void ResetGame()
-    {
-        // Reset game variables
-        gamePaused = true;
-        wandererCount = 10;
-        uniqueWandererMode = MoveEnum.Square;
-        score = 1000;
-        secondsBetweenTic = 1;
-        ticIncrement = 5;
-        punishIncrement = 50;
-
-        // Destroy existing wanderers and unique wanderer
-        foreach (GameObject wan in Wanderers)
-        {
-            Destroy(wan);
-        }
-        GameObject[] uniqueWanderers = GameObject.FindGameObjectsWithTag("UniqueWanderer");
-        foreach (GameObject uniqueWanderer in uniqueWanderers)
-        {
-            Destroy(uniqueWanderer);
-        }
-    }*/
     #endregion
 
     #region Gameplay_management

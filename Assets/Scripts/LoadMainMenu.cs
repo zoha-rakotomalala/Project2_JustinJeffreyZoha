@@ -7,8 +7,10 @@ public class LoadMainMenu : MonoBehaviour
 {
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
         //GameManager.Instance.ResetGame();
+        //SceneManager.LoadScene("MainMenu");
+        GameManager.Instance.MainMenu();
+        
     }
 
 }

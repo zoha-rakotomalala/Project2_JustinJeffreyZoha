@@ -1047,14 +1047,14 @@ PrefabInstance:
     - target: {fileID: 7803863260015789637, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 621440514}
+      objectReference: {fileID: 621440512}
     - target: {fileID: 7803863260015789637, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: doExitGame
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7803863260015789637, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ExitGame, Assembly-CSharp
+      value: LoadMainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
