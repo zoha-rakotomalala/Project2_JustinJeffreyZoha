@@ -494,6 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621440513}
   - component: {fileID: 621440512}
+  - component: {fileID: 621440514}
   m_Layer: 0
   m_Name: MainMenuScript
   m_TagString: Untagged
@@ -528,6 +529,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &621440514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621440511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791b95f55025f024abc8e65b1575b802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1030749275
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,14 +911,14 @@ PrefabInstance:
     - target: {fileID: 7803863260015789637, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 621440512}
+      objectReference: {fileID: 621440514}
     - target: {fileID: 7803863260015789637, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenu
+      value: doExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 7803863260015789637, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LoadMainMenu, Assembly-CSharp
+      value: ExitGame, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}

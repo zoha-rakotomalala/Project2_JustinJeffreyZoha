@@ -139,11 +139,11 @@ public class GameManager : MonoBehaviour
     {
         PoofWanderers();
         gamePaused = true;
-        //leaveButton.SetActive(true);
+        leaveButton.SetActive(true);
     }
 
     private void TriggerLose() {
-        //leaveButton.SetActive(true);
+        leaveButton.SetActive(true);
     }
     private void PoofWanderers()
     {
