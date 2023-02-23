@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
     public GameObject poofPrefab;
+    GameObject leaveButton;
 
     #region Unity_functions
     private void Awake()
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
                 TicScore();
             }
         }
+        if (score <= 0)
+        {
+            TriggerLose();
+        }
     }
     #endregion
 
@@ -58,8 +63,42 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log(scene.name + " Loaded");
-        if (scene.name == "GameScene") SetupGame();
+        if (scene.name == "GameScene") { 
+            SetupGame();
+            leaveButton = GameObject.FindWithTag("LeaveButton");
+            leaveButton.SetActive(false);
+            Debug.Log("Leave button: " + leaveButton);
+        }
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    /*public void ResetGame()
+    {
+        // Reset game variables
+        gamePaused = true;
+        wandererCount = 10;
+        uniqueWandererMode = MoveEnum.Square;
+        score = 1000;
+        secondsBetweenTic = 1;
+        ticIncrement = 5;
+        punishIncrement = 50;
+
+        // Destroy existing wanderers and unique wanderer
+        foreach (GameObject wan in Wanderers)
+        {
+            Destroy(wan);
+        }
+        GameObject[] uniqueWanderers = GameObject.FindGameObjectsWithTag("UniqueWanderer");
+        foreach (GameObject uniqueWanderer in uniqueWanderers)
+        {
+            Destroy(uniqueWanderer);
+        }
+    }*/
     #endregion
 
     #region Gameplay_management
@@ -100,6 +139,11 @@ public class GameManager : MonoBehaviour
     {
         PoofWanderers();
         gamePaused = true;
+        //leaveButton.SetActive(true);
+    }
+
+    private void TriggerLose() {
+        //leaveButton.SetActive(true);
     }
     private void PoofWanderers()
     {
