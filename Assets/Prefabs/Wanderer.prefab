@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f382462e99d7d439e7d33835ea1233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poofPrefab: {fileID: 4614837305621958062, guid: 8861f433f1a027347804058b38f763cf, type: 3}
   moveSpeed: 3
   moveTime: 1
   pauseTime: 1

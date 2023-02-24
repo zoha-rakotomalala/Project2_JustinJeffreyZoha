@@ -161,7 +161,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!210 &30818816
 SortingGroup:
@@ -749,8 +749,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1005,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2818.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7803863260015789636, guid: 1b82e991e0ff9ea47b93e29d654b023d, type: 3}
       propertyPath: m_LocalRotation.w

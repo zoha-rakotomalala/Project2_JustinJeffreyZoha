@@ -35,11 +35,10 @@ public class GameManager : MonoBehaviour
             {
                 scoreTimer -= secondsBetweenTic;
                 TicScore();
+            }else if(score <= 0)
+            {
+                TriggerLose();
             }
-        }
-        if (score <= 0)
-        {
-            TriggerLose();
         }
     }
     #endregion
@@ -118,6 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void TriggerWin()
     {
+        if(gamePaused) return;
         PoofWanderers();
         gamePaused = true;
         leaveButton.SetActive(true);
@@ -126,15 +126,23 @@ public class GameManager : MonoBehaviour
     }
 
     private void TriggerLose() {
+        PoofWanderers();
+        gamePaused = true;
         leaveButton.SetActive(true);
         endMessage.GetComponent<TextMeshProUGUI>().text = "You lose!";
         endMessage.SetActive(true);
     }
     private void PoofWanderers()
     {
-        foreach(GameObject wan in Wanderers){
-            Instantiate(poofPrefab, wan.transform.position, Quaternion.identity);
-            Destroy(wan);
+        StartCoroutine(PoofAll());
+    }
+
+    IEnumerator PoofAll()
+    {
+        for (int i = 0; i < wandererCount; i++)
+        {
+            Wanderers[i].GetComponent<Wanderer>().Poof();
+            yield return new WaitForSeconds(0.5f);
         }
     }
     #endregion

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Wanderer : MonoBehaviour
 {
+    public GameObject poofPrefab;
+
     #region Move_variables
     public float moveSpeed = 1f;
     protected Vector2 moveDirection;
@@ -115,6 +117,12 @@ public class Wanderer : MonoBehaviour
         FindObjectOfType<GameManager>().GetComponent<GameManager>().DecreaseScore();
 
         return false;
+    }
+
+    public void Poof()
+    {
+        Instantiate(poofPrefab, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }
 

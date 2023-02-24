@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5198378976181736117}
   - component: {fileID: 5019444650027584940}
   - component: {fileID: 5494011184852335448}
+  - component: {fileID: 1206251414932814402}
   m_Layer: 0
   m_Name: Poof
   m_TagString: Untagged
@@ -118,3 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6a5bf672e7fbe4090ab5758552f79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &1206251414932814402
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614837305621958062}
+  m_Enabled: 1
+  m_SortingLayerID: 2123844547
+  m_SortingLayer: 2
+  m_SortingOrder: 20
